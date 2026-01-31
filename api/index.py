@@ -14,7 +14,7 @@ with open(FILE_PATH, "r") as f:
     DATA = json.load(f)
 
 
-@app.post("/api")
+@app.post("/")
 async def analytics(request: Request):
     body = await request.json()
     regions = body.get("regions", [])
@@ -43,3 +43,4 @@ async def analytics(request: Request):
         content=results,
         headers={"Access-Control-Allow-Origin": "*"},
     )
+
